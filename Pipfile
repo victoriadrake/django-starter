@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+psycopg2-binary = "*"
+django-debug-toolbar = "*"
+
+[dev-packages]
+pre-commit = "*"
+django-debug-toolbar = "*"
+
+[requires]
+python_version = "3.9"

@@ -1,0 +1,150 @@
+/*
+Starter CSS Kit
+One of many nanostartups by Victoria Drake
+*/
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-text-primary: #24292e;
+        --color-bg: white;
+        --shadow: rgba(0, 0, 0, 0.15) 0px 2px 5px 0px;
+        --links: #55ae88;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text-primary: white;
+        --color-bg: #394149;
+        --shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px 0px;
+        --links: #55ae88;
+    }
+}
+@media (min-width: 300px) {
+    :root {
+        --scale: 0.8;
+    }
+}
+@media (min-width: 768px) {
+    :root {
+        --scale: 1;
+    }
+}
+@media (max-width: 768px) {
+    #menu {
+        display: none;
+    }
+    section {
+        width: 90%;
+    }
+}
+@media (min-width: 768px) {
+    #menu {
+        display: none;
+    }
+    section {
+        width: 80%;
+    }
+}
+@media (min-width: 1000px) {
+    :root {
+        --scale: 1.1;
+    }
+    section {
+        width: 70%;
+    }
+}
+html {
+    box-sizing: border-box;
+    background-color: var(--color-bg);
+    min-height: 100vh;
+}
+body {
+    margin: 0;
+    word-wrap: break-word;
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: x-locale-body, sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg);
+}
+header, header div, nav, footer {
+    min-height: 4rem;
+    background-color: var(--color-bg);
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+}
+header {
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+header>div {
+    max-width: 90rem;
+}
+main {
+    margin: 0 auto;
+    box-shadow: var(--shadow);
+    background-color: var(--color-bg);
+}
+a {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--links);
+}
+#logo {
+    margin: 0 2rem;
+    font-size: calc(24px * var(--scale));
+    font-weight: 800;
+    justify-content: flex-start;
+}
+#logo img {
+    max-height: 2rem;
+    margin: 0 1rem 0 0;
+}
+nav ul {
+    width: 100%;
+    margin: 0;
+    justify-content: flex-end;
+}
+nav ul li {
+    list-style-type: none;
+    margin: 0 2rem;
+}
+.flex {
+    display: flex;
+}
+.row {
+    flex-direction: row;
+}
+.col {
+    flex-direction: column;
+}
+section {
+    margin: 0 auto;
+    max-width: 70rem;
+}
+section.hero {
+    padding: 6rem 0;
+    min-height: 20vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+section.hero h1 {
+    font-size: calc(42px * var(--scale));
+    margin: 0;
+}
+.cta {
+    padding: 6rem 0 1rem 0;
+    text-align: center;
+    margin: 2rem auto;
+}
+h2 {
+    font-size: calc(26px * var(--scale));
+    margin: 0;
+}
+h3 {
+    font-size: calc(20px * var(--scale));
+    margin: 0;
+}
