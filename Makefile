@@ -22,7 +22,7 @@ get-pipenv: ## Pipenv is a dependency manager for Python projects
 get-django: ## Install Django using pipenv
 		pipenv install Django
 
-install: ## Install or update all dependencies
+install: get-pipenv ## Install or update all dependencies
 		pipenv install --dev
 		pipenv run pre-commit install --install-hooks
 
