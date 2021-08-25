@@ -6,6 +6,7 @@ env:
   FAIL_LEVEL: WARNING
   ENV_TYPE: pipenv
   EXTRA_ARGS: "--settings=app.settings.production"
+  SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
 jobs:
   build:
