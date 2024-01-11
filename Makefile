@@ -4,12 +4,22 @@ SHELL := /bin/bash
 help: ## Show this help
 		@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-make pyenv-install: ## Install Python 3.9 via pyenv, to manage multiple versions
+pyenv-install: ## Install Python via pyenv, to manage multiple versions
 		git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 		cd ~/.pyenv && src/configure && make -C src
-		@echo "You'll need to configure your shell for Pyenv yourself: https://github.com/pyenv/pyenv#basic-github-checkout"
-		@echo "I'd like to do it for you but it's too tricky! >_<"
-		@echo "Afterwards do 'pyenv local 3.9.6'"
+		@echo "Configuring your shell for Pyenv..."
+		@echo '# Pyenv configuration (https://github.com/pyenv/pyenv#basic-github-checkout)' >> ~/.bashrc
+		@echo 'export PYENV_ROOT="$$HOME/.pyenv"' >> ~/.bashrc
+		@echo 'command -v pyenv >/dev/null || export PATH="$$PYENV_ROOT/bin:$$PATH"' >> ~/.bashrc
+		@echo 'eval "$$(pyenv init -)"' >> ~/.bashrc
+		@echo "All done! To see available Python versions to install, do 'pyenv install --list'."
+		@echo "If the Python installation fails, ensure you have Python dependencies and build tools installed: https://github.com/pyenv/pyenv/wiki#suggested-build-environment"
+
+get-python-libs-debian: ## Install Python dependencies and build tools on Ubuntu/Debian/Mint
+		sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
+		libbz2-dev libreadline-dev libsqlite3-dev curl \
+		libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+		@echo "To install dependencies with sudo apt, enter your password (it's not stored by this script)."
 
 get-pip: ## Install pip in a Python environment with Python's 'ensurepip' module
 		python -m ensurepip --upgrade
@@ -25,6 +35,7 @@ get-django: ## Install Django using pipenv
 install: get-pipenv ## Install or update all dependencies
 		pipenv install --dev
 		pipenv run pre-commit install --install-hooks
+		@echo "All done!"
 
 pipshell: ## Start a shell in the virtual environment
 		pipenv shell

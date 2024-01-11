@@ -33,7 +33,11 @@ git clone https://github.com/victoriadrake/django-starter
 
 ### 3. Install dependencies
 
-Do `make install` to install dependencies in a virtual environment.
+If you don't have Python installed, run `make pyenv-install` to install it via Pyenv. This helps to manage multiple Python versions. (You can change the version of Python this project uses by updating it in [Pipfile](/Pipfile).)
+
+Then to install your chosen Python version, run `pyenv install 3.xx` and replace `3.xx` with your chosen version number.
+
+Do `make install` to install Django dependencies in a virtual environment.
 
 If you'd like help installing just Django via Pipenv, run `./django-setup.sh`.
 

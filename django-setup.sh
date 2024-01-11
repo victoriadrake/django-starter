@@ -9,10 +9,10 @@ echo
 
 echo "Checking for Python version..."
 pyver=$(python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}".format(*version))')
-if [[ "$pyver" != "3.9" ]]; then
-  echo "You don't appear to have Python 3.9.x installed. Run 'make pyenv-install' if you'd like help with this." && exit 1
+if [[ "$pyver" != "3.12" ]]; then
+  echo "You don't appear to have Python 3.12.x installed. Run 'make pyenv-install' if you'd like help with this." && exit 1
 else
-  echo "Ok, Python 3.9 found."
+  echo "Ok, Python 3.12 found."
 fi
 echo
 
