@@ -1,7 +1,7 @@
 """URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -26,7 +26,7 @@ if settings.DEBUG:
     from django.conf.urls.static import static
 
     # Will serve files from /media/ in development mode
-    # https://docs.djangoproject.com/en/3.2/ref/views/#serving-files-in-development
+    # https://docs.djangoproject.com/en/5.0/ref/views/#serving-files-in-development
     urlpatterns += [
         re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT})
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

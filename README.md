@@ -11,9 +11,8 @@ This will help you:
 - Run tests and [Django Security Check](https://github.com/victoriadrake/django-security-check) via GitHub Actions
 - Work faster with a [self-documenting Makefile](https://victoria.dev/blog/how-to-create-a-self-documenting-makefile/) tailored to Django
 - Format files before committing with [pre-commit](.pre-commit-config.yaml)
-- Get Python 3.9, Pip, Pipenv, and Django installed in a new environment
+- Get Python, Pip, Pipenv, and Django installed in a new environment
 - Work with a .gitignore tailored to Python and Django development
-- Set up and link a Docker Postgres database
 
 ## Usage
 
@@ -33,9 +32,8 @@ git clone https://github.com/victoriadrake/django-starter
 
 ### 3. Install dependencies
 
-If you don't have Python installed, run `make pyenv-install` to install it via Pyenv. This helps to manage multiple Python versions. (You can change the version of Python this project uses by updating it in [Pipfile](/Pipfile).)
-
-Then to install your chosen Python version, run `pyenv install 3.xx` and replace `3.xx` with your chosen version number.
+> [!TIP]
+> If you don't have Python installed, run `make pyenv-install` to install it via Pyenv. This helps to manage multiple Python versions. (You can change the version of Python this project uses by updating it in [Pipfile](/Pipfile).) Then to install your chosen Python version, run `pyenv install 3.xx` and replace `3.xx` with your chosen version number.
 
 Do `make install` to install Django dependencies in a virtual environment.
 
@@ -43,9 +41,9 @@ If you'd like help installing just Django via Pipenv, run `./django-setup.sh`.
 
 ### 4. Profit!!!
 
-You can now do `make dev` to see a pretty welcome page at `http://localhost:8000/` and test that everything's working properly.
+You can now do `make migrate` then `make dev` to see a pretty welcome page at `http://localhost:8000/` and test that everything's working properly.
 
-Start building! If you're new to Django, check out their [great tutorials](https://docs.djangoproject.com/en/3.2/intro/).
+Start building! If you're new to Django, check out their [great tutorials](https://docs.djangoproject.com/en/5.0/intro/).
 
 Run `make help` to see what else I've got set up for you.
 

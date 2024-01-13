@@ -42,6 +42,8 @@ pipshell: ## Start a shell in the virtual environment
 
 db: ## Start the Docker Postgres container in background
 		docker-compose -f docker-compose.yml up -d
+		@echo "Docker needs a second to finish if you're chaining scripts..."
+		sleep 2
 
 db-shell: ## Start an interactive shell in the Postgres DB
 		docker exec -it "$(CONTAINER)" bash
@@ -49,9 +51,7 @@ db-shell: ## Start an interactive shell in the Postgres DB
 psql: ## Enter the DB with psql
 		docker exec -it "$(CONTAINER)" psql -U "$(POSTGRES_USER)" "$(POSTGRES_DB)"
 
-dev: db ## Run the Django development server
-		@echo "Docker needs a second to finish ^_^*"
-		sleep 2
+dev: ## Run the Django development server
 		pipenv run python manage.py runserver --settings=app.settings.local
 
 migrate: ## Make and perform Django migrations
